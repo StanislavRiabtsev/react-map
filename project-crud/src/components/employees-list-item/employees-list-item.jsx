@@ -6,13 +6,14 @@ function EmployeesLitsItem(props) {
     let classNames = "list-group-item d-flex justify-content-between"
     if (increase) {
         classNames += ' increase';
-    } else if (promotion) {
+    }
+    if (promotion) {
         classNames += ' like'
     }
 
     return (
         <li className={classNames}>
-            <span onClick={onToggleProp} data-toggle="promotion" className="list-group-item-label">{name}</span>
+            <span className="list-group-item-label" onClick={onToggleProp} data-toggle="promotion">{name}</span>
             <input type="text" className="list-group-item-input" defaultValue={salary + '$'} />
             <div className='d-flex justify-content-center align-items-center'>
                 <button type="button"
