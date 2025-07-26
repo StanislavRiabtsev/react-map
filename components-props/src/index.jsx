@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { Button } from './App';
-import AutoLayoutExample from './BootstrapTest'
 import styled from 'styled-components';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -19,6 +18,5 @@ root.render(
   <React.StrictMode>
     <App />
     <BigButton as="a">HERE</BigButton>
-    <AutoLayoutExample></AutoLayoutExample>
   </React.StrictMode>
 );
