@@ -147,7 +147,7 @@ function App() {
         }
         right={
           <DynamicGreating color={'primary'}>
-            <h2>RIGHT</h2>
+            <h2>Right</h2>
           </DynamicGreating>
         }
       />
