@@ -1,86 +1,78 @@
-import { Component } from 'react';
-import styled from 'styled-components';
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import { Container } from 'react-bootstrap';
 import './App.css';
 
-const EmpItem = styled.div`
-  padding: 20px;
-  margin-bottom: 15px;
-  border-radius: 5px;
-  box-shadow: 5px 5px 10px rgba(0,0,0, .8);
-  a {
-    display: block;
-    margin:10px 0 10px 0;
-    color: ${props => props.active ? "orange" : " black"};
-  }
-  input{
-    display: block;
-    margin-top: 10px;
-  }
-`;
-
-const Header = styled.h2`
-  font-size: 22px;
-`;
-
-export const Button = styled.button`
-  display: block;
-  padding: 5px 15px;
-  background-color: gold;
-  border: 1px solid rgba(0,0,0, .8);
-  box-shadow: 5px 5px 10px rgba(0,0,0, .8)
-`;
-
-class WhoAmI extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      years: 19,
-      position: ''
-    }
+class Form extends Component {
+  state = {
+    advOpen: false
   }
 
-  nextYear = () => {
-    this.setState(state => ({
-      years: state.years + 1
+  componentDidMount() {
+    setTimeout(this.handleClick, 3000)
+  }
+
+  handleClick = () => {
+    this.setState(({ advOpen }) => ({
+      advOpen: !advOpen
     }))
   }
 
-  commitInputChanges = (e, color) => {
-    console.log(color);
-    this.setState({
-      position: e.target.value
-    })
-  }
-
   render() {
-    const { name, surname, link } = this.props;
-    const { position, years } = this.state;
     return (
-      <EmpItem active>
-        <Button onClick={this.nextYear}>+++</Button>
-        <Header>My name is {name}, surname - {surname}, age - {years},
-          position - {position}</Header>
-        <a href={link}>My profile</a>
-        <form>
-          <span>Enter your job title</span>
-          <input type="text" onChange={(e) => this.commitInputChanges(e, 'some color')} />
+      <Container>
+        <form onClick={this.handleClick} className="w-50 border mt-5 p-3 m-auto"
+          style={{
+            'overflow': 'hidden',
+            'position': 'relative'
+          }}>
+          <div className="mb-3">
+            <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
+            <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="exampleFormControlTextarea1" className="form-label">Example textarea</label>
+            <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+          {
+            this.state.advOpen ?
+              <Portal>
+                <Msg />
+              </Portal> : null
+          }
+
         </form>
-      </EmpItem>
+      </Container>
     )
   }
 }
 
-const Wrapper = styled.div`
-  width: 600px;
-  margin: 80px auto 0 auto;
-`;
+const Portal = (props) => {
+  const node = document.createElement('div');
+  document.body.appendChild(node);
+
+  return ReactDOM.createPortal(props.children, node);
+}
+
+const Msg = () => {
+  return (
+    <div
+      style={{
+        'width': '500px',
+        'height': '150px',
+        'backgroundColor': 'red',
+        'position': 'absolute',
+        'right': '0',
+        'bottom': '0'
+      }}>
+      Hello
+    </div>
+  )
+}
 
 function App() {
   return (
-    <Wrapper>
-      <WhoAmI name='Stasnislav' surname="Riabstev" link="facebook.com" />
-      <WhoAmI name='Max' surname="Bob" link="youtube.com" />
-    </Wrapper>
+    <Form />
   );
 }
 
