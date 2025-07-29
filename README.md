@@ -45,3 +45,12 @@ src/
 │
 └─ index.jsx                    # Entry point — renders <App /> into the DOM
 ```
+
+## 🧠 Contact
+Author: Stanislav Riabtsev
+
+Repository: https://github.com/StanislavRiabtsev/marvel-portal
+
+Reach out via: [Telegram](https://t.me/il_stas_li), [LinkedIn](https://www.linkedin.com/in/stanislav-riabtsev-4aa269244), or [GitHub](https://github.com/StanislavRiabtsev) profile
+
+Email: stasikrybcev@gmail.com
