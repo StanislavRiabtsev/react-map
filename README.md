@@ -36,7 +36,7 @@ src/
 ├─ components/
 │  ├─ app/
 │  │  └─ App.jsx                # Root component that renders the full app layout
-│  ├─ app-filter/               # Filter buttons for employee list (e.g. "All", "Rise", "MoreThen")
+│  ├─ app-filter/               # Filter buttons for employee list (e.g. 'All', 'Rise', 'MoreThen')
 │  ├─ app-info/                 # Displays general app info (e.g. total employees, prize)
 │  ├─ employees-add-form/       # Form component to add a new employee
 │  ├─ employees-list/           # List that renders all employee items
@@ -45,3 +45,12 @@ src/
 │
 └─ index.jsx                    # Entry point — renders <App /> into the DOM
 ```
+
+## 🧠 Contact
+Author: Stanislav Riabtsev
+
+Repository: https://github.com/StanislavRiabtsev/marvel-portal
+
+Reach out via: [Telegram](https://t.me/il_stas_li), [LinkedIn](https://www.linkedin.com/in/stanislav-riabtsev-4aa269244), or [GitHub](https://github.com/StanislavRiabtsev) profile
+
+Email: stasikrybcev@gmail.com
