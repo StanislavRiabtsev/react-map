@@ -1,72 +1,52 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import './App.css';
 
-class Form extends Component {
-  state = {
-    advOpen: false
+function useInputWithValidate(initialValue) {
+  const [value, setValue] = useState(initialValue);
+
+  const onChange = event => {
+    setValue(event.target.value);
   }
 
-  componentDidMount() {
-    setTimeout(this.handleClick, 3000)
+  const validateInput = () => {
+    return value.search(/\d/) >= 0
   }
 
-  handleClick = () => {
-    this.setState(({ advOpen }) => ({
-      advOpen: !advOpen
-    }))
-  }
-
-  render() {
-    return (
-      <Container>
-        <form onClick={this.handleClick} className="w-50 border mt-5 p-3 m-auto"
-          style={{
-            'overflow': 'hidden',
-            'position': 'relative'
-          }}>
-          <div className="mb-3">
-            <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
-            <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="exampleFormControlTextarea1" className="form-label">Example textarea</label>
-            <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-          </div>
-          {
-            this.state.advOpen ?
-              <Portal>
-                <Msg />
-              </Portal> : null
-          }
-
-        </form>
-      </Container>
-    )
-  }
+  return { value: value, onChange: onChange, validateInput }
 }
 
-const Portal = (props) => {
-  const node = document.createElement('div');
-  document.body.appendChild(node);
+const Form = () => {
+  const input = useInputWithValidate('');
+  const textArea = useInputWithValidate('');
 
-  return ReactDOM.createPortal(props.children, node);
-}
+  const color = input.validateInput() ? 'text-danger' : null;
 
-const Msg = () => {
   return (
-    <div
-      style={{
-        'width': '500px',
-        'height': '150px',
-        'backgroundColor': 'red',
-        'position': 'absolute',
-        'right': '0',
-        'bottom': '0'
-      }}>
-      Hello
-    </div>
+    <Container>
+      <form className="w-50 border mt-5 p-3 m-auto">
+        <div className="mb-3">
+          <input value={`${input.value} / ${textArea.value}`} type="text" className="form-control" readOnly></input>
+          <label htmlFor="exampleFormControlInput1" className="form-label mt-3">Email address</label>
+          <input
+            onChange={input.onChange}
+            type="email"
+            value={input.value}
+            className={`form-control ${color}`}
+            id="exampleFormControlInput1"
+            placeholder="name@example.com" />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="exampleFormControlTextarea1" className="form-label">Example textarea</label>
+          <textarea
+            onChange={textArea.onChange}
+            value={textArea.value}
+            className="form-control"
+            id="exampleFormControlTextarea1"
+            rows="3"></textarea>
+        </div>
+      </form>
+    </Container>
   )
 }
 
