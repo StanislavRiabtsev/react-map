@@ -62,7 +62,7 @@ function App() {
   });
 
   const onLog = useCallback(() => {
-    console.log('woow');
+    console.log('wooow');
   }, []);
 
   return (
