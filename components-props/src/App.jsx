@@ -58,7 +58,7 @@ const Form = memo((props) => {
 function App() {
   const [data, setData] = useState({
     mail: "name@example.com",
-    text: 'some text'
+    text: 'some text here'
   });
 
   const onLog = useCallback(() => {
