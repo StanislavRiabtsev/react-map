@@ -57,7 +57,7 @@ const Form = memo((props) => {
 
 function App() {
   const [data, setData] = useState({
-    mail: "name@example.com",
+    mail: "name@examples.com",
     text: 'some text here'
   });
 
