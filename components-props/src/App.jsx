@@ -73,7 +73,7 @@ function App() {
           mail: "ame@example.com",
           text: 'some text here'
         })}>
-        Click me
+        Click mee
       </button>
     </>
   );
