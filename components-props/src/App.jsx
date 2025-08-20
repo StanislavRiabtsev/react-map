@@ -48,10 +48,10 @@ const Slider = ({ initial }) => {
             onClick={() => dispatch({ type: 'toggle' })}>toggle autoplay</button>
           <button
             className="btn btn-primary me-2"
-            onClick={() => dispatch({ type: 'slow' })}>slow autoplay</button>
+            onClick={() => dispatch({ type: 'slow' })}>slow </button>
           <button
             className="btn btn-primary me-2"
-            onClick={() => dispatch({ type: 'fast' })}>fast autoplay</button>
+            onClick={() => dispatch({ type: 'fast' })}>fast </button>
           <button
             className="btn btn-primary me-2"
             onClick={(e) => dispatch({ type: 'custom', payload: +e.target.textContent })}>1000</button>
