@@ -54,7 +54,7 @@ const Slider = ({ initial }) => {
             onClick={() => dispatch({ type: 'fast' })}>fast </button>
           <button
             className="btn btn-primary me-2"
-            onClick={(e) => dispatch({ type: 'custom', payload: +e.target.textContent })}>2000</button>
+            onClick={(e) => dispatch({ type: 'customы', payload: +e.target.textContent })}>2000</button>
         </div>
       </div>
     </Container>
