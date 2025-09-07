@@ -4,7 +4,7 @@ import { createStore } from 'redux';
 
 const initialState = { value: 0 };
 
-const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => { // Pure functions
   switch (action.type) {
     case 'INC':
       return {
