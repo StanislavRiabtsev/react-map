@@ -1,59 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, bindActionCreators } from 'redux';
+import reducer from './reducer';
+import * as actions from './action';
 
-const initialState = { value: 0 };
+const store = createStore(reducer);
 
-const reducer = (state = initialState, action) => { // Pure functions
-  switch (action.type) {
-    case 'INC':
-      return {
-        ...state, value: state.value + 1
-      };
-    case 'DEC':
-      return {
-        ...state, value: state.value - 1
-      };
-    case 'RND':
-      return {
-        ...state, value: state.value * action.payload
-      };
-    default:
-      return state;
-  }
-}
-
-const store = createStore(reducer, initialState);
+const { dispatch, subscribe, getState } = store;
 
 const update = () => {
-  document.getElementById('counter').textContent = store.getState().value;
+  document.getElementById('counter').textContent = getState().value;
 }
 
-store.subscribe(update);
+subscribe(update);
 
-const inc = () => ({ type: 'INC' });
-const dec = () => ({ type: 'DEC' });
-const rnd = (value) => ({ type: 'RND', payload: value });
+// const bindActionCreator = (creator, dispatch) => (...args) => {
+//   dispatch(creator(...args));
+// }
 
-document.getElementById('INC').addEventListener('click', () => {
-  store.dispatch(inc());
-});
+const { inc, dec, rnd } = bindActionCreators(actions, dispatch);
 
-document.getElementById('DEC').addEventListener('click', () => {
-  store.dispatch(dec());
-});
+document.getElementById('INC').addEventListener('click', inc);
+
+document.getElementById('DEC').addEventListener('click', dec);
 
 document.getElementById('RND').addEventListener('click', () => {
   const value = Math.floor(Math.random() * 10);
-  store.dispatch(rnd(value));
+  rnd(value);
 });
-
-
-// let state = reducer(initialState, { type: 'INC' })
-// state = reducer(state, { type: 'INC' })
-// state = reducer(state, { type: 'INC' })
-// state = reducer(state, { type: 'INC' })
-// console.log(state);
 
 ReactDOM.render(
   <React.StrictMode>
