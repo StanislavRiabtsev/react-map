@@ -11,7 +11,7 @@ const Counter = () => {
             <h1 >{counter}</h1>
             <button onClick={() => dispatch(dec())} className="btn btn-primary">DEC</button>
             <button onClick={() => dispatch(inc())} className="btn btn-primary">INC</button>
-            <button onClick={() => dispatch(rnd())} className="btn btn-secondary">RND</button>
+            <button onClick={() => dispatch(rnd())} className="btn btn-primary">RND</button>
         </div>
     )
 }
