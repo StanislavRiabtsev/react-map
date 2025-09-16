@@ -1,39 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { createStore, bindActionCreators } from 'redux';
+import { createRoot } from 'react-dom/client';   // вместо react-dom
+import { createStore } from 'redux';
 import reducer from './reducer';
-import * as actions from './action';
+import { Provider } from "react-redux";
 
-const store = createStore(reducer);
+import App from './components/App';
 
-const { dispatch, subscribe, getState } = store;
+const store = createStore(reducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
-const update = () => {
-  document.getElementById('counter').textContent = getState().value;
-}
+const root = createRoot(document.getElementById('root'));
 
-subscribe(update);
-
-// const bindActionCreator = (creator, dispatch) => (...args) => {
-//   dispatch(creator(...args));
-// }
-
-const { inc, dec, rnd } = bindActionCreators(actions, dispatch);
-
-document.getElementById('INC').addEventListener('click', inc);
-
-document.getElementById('DEC').addEventListener('click', dec);
-
-document.getElementById('RND').addEventListener('click', () => {
-  const value = Math.floor(Math.random() * 10);
-  rnd(value);
-});
-
-ReactDOM.render(
+root.render(
   <React.StrictMode>
-    <>
-
-    </>
-  </React.StrictMode>,
-  document.getElementById('root')
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
 );
