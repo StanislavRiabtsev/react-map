@@ -41,6 +41,12 @@ const HeroesList = () => {
         })
     }
 
+    const onDelete = (id) => {
+        request(`http://localhost:3001/heroes/${id}`, "DELETE")
+            .then(() => dispatch(heroesFetching()))
+            .catch(() => dispatch(heroesFetchingError()))
+    }
+
     const elements = renderHeroesList(heroes);
     return (
         <ul>
