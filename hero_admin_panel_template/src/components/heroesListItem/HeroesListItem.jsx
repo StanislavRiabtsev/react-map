@@ -1,3 +1,5 @@
+import onDelete from '../heroesList/HeroesList';
+
 const HeroesListItem = ({ name, description, element }) => {
 	let elementClassName;
 
@@ -37,6 +39,7 @@ const HeroesListItem = ({ name, description, element }) => {
 					type="button"
 					className="btn-close btn-close"
 					aria-label="Close"
+					onClick={onDelete}
 				></button>
 			</span>
 		</li>
