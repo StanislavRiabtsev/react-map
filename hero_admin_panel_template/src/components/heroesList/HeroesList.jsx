@@ -41,6 +41,10 @@ const HeroesList = () => {
         })
     }
 
+    if (onDelete === undefined) {
+        return <h5 className="text-center mt-5">No heroes yet</h5>
+    }   
+
     const onDelete = (id) => {
         request(`http://localhost:3001/heroes/${id}`, "DELETE")
             .then(() => dispatch(heroesFetching()))
