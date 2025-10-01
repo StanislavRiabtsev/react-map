@@ -16,27 +16,27 @@
   "filters": [
     {
       "name": "all",
-      "label": "all",
+      "label": "All",
       "className": "btn-outline-dark"
     },
     {
       "name": "fire",
-      "label": "fire",
+      "label": "Fire",
       "className": "btn-danger"
     },
     {
       "name": "water",
-      "label": "water",
+      "label": "Water",
       "className": "btn-primary"
     },
     {
       "name": "wind",
-      "label": "wind",
+      "label": "Wind",
       "className": "btn-success"
     },
     {
       "name": "earth",
-      "label": "earth",
+      "label": "Earth",
       "className": "btn-secondary"
     }
   ]
