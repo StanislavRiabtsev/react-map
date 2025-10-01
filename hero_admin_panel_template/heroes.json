@@ -11,32 +11,38 @@
       "name": "The Unknown Hero",
       "description": "Hiding in the shadows",
       "element": "wind"
+    },
+    {
+      "id": "8c44dcd9-9418-42a2-b64e-c9f853b04733",
+      "name": "WSB",
+      "description": "wsb",
+      "element": "earth"
     }
   ],
   "filters": [
     {
       "name": "all",
-      "label": "All",
+      "label": "all",
       "className": "btn-outline-dark"
     },
     {
       "name": "fire",
-      "label": "Fire",
+      "label": "fire",
       "className": "btn-danger"
     },
     {
       "name": "water",
-      "label": "Water",
+      "label": "water",
       "className": "btn-primary"
     },
     {
       "name": "wind",
-      "label": "Wind",
+      "label": "wind",
       "className": "btn-success"
     },
     {
       "name": "earth",
-      "label": "Earth",
+      "label": "earth",
       "className": "btn-secondary"
     }
   ]
