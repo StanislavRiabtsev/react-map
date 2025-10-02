@@ -17,6 +17,12 @@
       "name": "WSB",
       "description": "wsb",
       "element": "earth"
+    },
+    {
+      "id": "ce930250-4510-432e-889e-e18f7c7c1f69",
+      "name": "WSB",
+      "description": "erger",
+      "element": "wind"
     }
   ],
   "filters": [
