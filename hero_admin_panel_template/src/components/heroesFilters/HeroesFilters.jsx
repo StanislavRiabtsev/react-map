@@ -1,17 +1,18 @@
-import {useHttp} from '../../hooks/http.hook';
+import { useHttp } from '../../hooks/http.hook';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames';
+import store from '../../store';
 
-import { fetchFilters } from '../../actions';
-import { filtersChanged } from './filtersSlice';
+import { filtersChanged, fetchFilters, selectAll } from './filtersSlice';
 import Spinner from '../spinner/Spinner';
 
 const HeroesFilters = () => {
 
-    const {filters, filtersLoadingStatus, activeFilter} = useSelector(state => state.filters);
+    const { filtersLoadingStatus, activeFilter } = useSelector(state => state.filters);
+    const filters = selectAll(store.getState());
     const dispatch = useDispatch();
-    const {request} = useHttp();
+    const { request } = useHttp();
 
     useEffect(() => {
         dispatch(fetchFilters(request));
@@ -20,7 +21,7 @@ const HeroesFilters = () => {
     }, []);
 
     if (filtersLoadingStatus === "loading") {
-        return <Spinner/>;
+        return <Spinner />;
     } else if (filtersLoadingStatus === "error") {
         return <h5 className="text-center mt-5">Loading error</h5>
     }
@@ -30,18 +31,18 @@ const HeroesFilters = () => {
             return <h5 className="text-center mt-5">No filters found</h5>
         }
 
-        return arr.map(({name, className, label}) => {
+        return arr.map(({ name, className, label }) => {
 
             const btnClass = classNames('btn', className, {
                 'active': name === activeFilter
             });
-            
-            return <button 
-                        key={name} 
-                        id={name} 
-                        className={btnClass}
-                        onClick={() => dispatch(filtersChanged(name))}
-                        >{label}</button>
+
+            return <button
+                key={name}
+                id={name}
+                className={btnClass}
+                onClick={() => dispatch(filtersChanged(name))}
+            >{label}</button>
         })
     }
 

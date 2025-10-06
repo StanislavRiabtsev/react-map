@@ -7,10 +7,16 @@
       "element": "fire"
     },
     {
-      "id": "0b5ce9d2-3669-4714-98b7-00a490e622a8",
-      "name": "sdfdssdfsdf",
-      "description": "sdfdsfds",
+      "id": "d69f5887-0f3d-4956-89ea-0bc0d7d04611",
+      "name": "sdfds",
+      "description": "sdfds",
       "element": "water"
+    },
+    {
+      "id": "f9a3d0ab-e35a-4707-a7d5-0402491eec80",
+      "name": "WSB",
+      "description": "werewr",
+      "element": "wind"
     }
   ],
   "filters": [
