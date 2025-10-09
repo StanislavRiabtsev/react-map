@@ -1,11 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+
 import App from './App';
+import { HELLO } from './Folder/hello';
+import { HOOP } from './Folder/index';
+import { TEST1, TEST2 } from './test';
+import Dog from './Dog.jpg';
+import './index.css';
 
-import HelloWorldNPM from 'hello-world-npm';
+console.log(TEST1, TEST2);
 
-console.log(HelloWorldNPM.helloWorld());
+console.log(HELLO);
+console.log(HOOP);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+root.render(<React.StrictMode>
+    <div className='back'>
+        <img src={Dog} alt="dog" />
+        <App />
+    </div>
+</React.StrictMode>);
