@@ -2,29 +2,49 @@ import React from "react";
 import './index.css';
 
 const App = () => {
-    const name = 'Stanislav';
-    const age = 36;
+    const array = [{ hello: 'world' }, { hello: 'world1' }];
 
-    let atr;
+    // const arrayReactElements = [];
 
-    if (age === 36) {
-        atr = 'good';
-    } else {
-        atr = 'bad';
-    }
+    // for (let i = 0; i < array.length; i++) {
+    //     const element = array[i];
 
-    function test() {
-        return 'hello';
-    }
+    //     arrayReactElements.push(
+    //         <div>
+    //             {element.hello}
+    //         </div>
+    //     );
+    // }
 
-    return <h1 className={atr}>
-        Hello World {name}, you are {age} years old.
+    // array.forEach((obj) => {
+    //     arrayReactElements.push(
+    //         <div>
+    //             {obj.hello}
+    //         </div>
+    //     );
+    // });
+
+    const result = array.map((obj) => {
+        return (
+            <div >
+                {obj.hello}
+            </div>
+        );
+    });
+
+    console.log(result);
+
+    return (
         <div className="div">
-            {age === 36 ? 'You are good' : 'You are bad'}
-            <br />
-            {test()}
+            {array.map((obj) => {
+                return (
+                    <div >
+                        {obj.hello}
+                    </div>
+                );
+            })}
         </div>
-    </h1>;
+    );
 };
 
 export default App;
