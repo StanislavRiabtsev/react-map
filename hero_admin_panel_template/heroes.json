@@ -1,0 +1,49 @@
+{
+  "heroes": [
+    {
+      "id": 1,
+      "name": "The First Hero",
+      "description": "The first hero in the ranking!",
+      "element": "fire"
+    },
+    {
+      "id": "d69f5887-0f3d-4956-89ea-0bc0d7d04611",
+      "name": "sdfds",
+      "description": "sdfds",
+      "element": "water"
+    },
+    {
+      "id": "f9a3d0ab-e35a-4707-a7d5-0402491eec80",
+      "name": "WSB",
+      "description": "werewr",
+      "element": "wind"
+    }
+  ],
+  "filters": [
+    {
+      "name": "all",
+      "label": "all",
+      "className": "btn-outline-dark"
+    },
+    {
+      "name": "fire",
+      "label": "fire",
+      "className": "btn-danger"
+    },
+    {
+      "name": "water",
+      "label": "water",
+      "className": "btn-primary"
+    },
+    {
+      "name": "wind",
+      "label": "wind",
+      "className": "btn-success"
+    },
+    {
+      "name": "earth",
+      "label": "earth",
+      "className": "btn-secondary"
+    }
+  ]
+}
