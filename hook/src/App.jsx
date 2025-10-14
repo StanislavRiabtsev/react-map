@@ -1,50 +1,32 @@
 import React from "react";
+
 import './index.css';
 
+const USERS = [
+    { id: 1, name: 'Alex', surname: 'Smith', age: 25, passportId: 123 },
+    { id: 2, name: 'Bob', surname: 'Johnson', age: 30, passportId: 456 },
+    { id: 3, name: 'Arnold', surname: 'Williams', age: 35, passportId: 123 },
+    { id: 4, name: 'Felix', surname: 'Jones', age: 40, passportId: 101112 },
+]
+
 const App = () => {
-    const array = [{ hello: 'world' }, { hello: 'world1' }];
-
-    // const arrayReactElements = [];
-
-    // for (let i = 0; i < array.length; i++) {
-    //     const element = array[i];
-
-    //     arrayReactElements.push(
-    //         <div>
-    //             {element.hello}
-    //         </div>
-    //     );
-    // }
-
-    // array.forEach((obj) => {
-    //     arrayReactElements.push(
-    //         <div>
-    //             {obj.hello}
-    //         </div>
-    //     );
-    // });
-
-    const result = array.map((obj) => {
-        return (
-            <div >
-                {obj.hello}
-            </div>
-        );
-    });
-
-    console.log(result);
-
     return (
-        <div className="div">
-            {array.map((obj) => {
+        <div>
+            {USERS.map((user, index) => {
+                const key = generateKey(user);
+                console.log(key);
                 return (
-                    <div >
-                        {obj.hello}
+                    <div key={key}>
+                        <p>{user.name}</p>
                     </div>
-                );
+                )
             })}
         </div>
     );
 };
+
+function genereateKey(user) {
+    return `${user.name}-${user.surname}-${user.age}-${user.passportId}`;
+}
 
 export default App;
