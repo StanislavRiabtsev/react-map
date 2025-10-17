@@ -1,8 +1,9 @@
 import React from 'react';
 import Poster from './Poster';
+import BoxShadowWrapper from './Wrapper';
 // import UserName from './UserName';
 
-// import './index.css';
+import './index.css';
 
 
 // let USERS = [
@@ -74,7 +75,7 @@ const MOVIES = [
         name: 'About the man with the bear',
         description: 'A bear reads a newspaper',
         author: { name: 'John' },
-        img: 'https://www.film.ru/sites/default/files/images/crobn_013h_g_spa-ar_70x100_002_nuevo.jpg' 
+        img: 'https://www.film.ru/sites/default/files/images/crobn_013h_g_spa-ar_70x100_002_nuevo.jpg'
     },
     {
         id: 3,
@@ -86,15 +87,16 @@ const MOVIES = [
 
 const App = () => {
     return (
-        <div>
+        <div className='wrapper'>
             {MOVIES.map((movie) => (
-            <Poster 
-            key={movie.id}
-            name={movie.name}
-            description={movie.description}
-            author={movie.author}
-            img={movie.img}
-            />
+                <BoxShadowWrapper key={movie.id}>
+                    <Poster
+                        name={movie.name}
+                        description={movie.description}
+                        author={movie.author}
+                        img={movie.img}
+                    />
+                </BoxShadowWrapper>
             ))}
         </div>
     );
