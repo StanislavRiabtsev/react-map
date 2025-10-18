@@ -1,4 +1,15 @@
-.wrapper {
-    display: flex;
-    gap: 30px;
+.dark,
+.light {
+    width: 100vw;
+    height: 100vh;
+}
+
+.dark {
+    background-color: #141515;
+    color: #ffffff;
+}
+
+.light {
+    background-color: #656565;
+    color: #000000;
 }
