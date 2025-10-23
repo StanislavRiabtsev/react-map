@@ -1,48 +1,28 @@
-import React from "react";
+import React, { useState } from 'react';
+import Children from './Children';
+
 import './index.css';
 
 const App = () => {
-    const array = [{ hello: 'world' }, { hello: 'world1' }];
 
-    // const arrayReactElements = [];
+    const [state, setState] = useState(false);
+    const [count, setCount] = useState(0);
 
-    // for (let i = 0; i < array.length; i++) {
-    //     const element = array[i];
 
-    //     arrayReactElements.push(
-    //         <div>
-    //             {element.hello}
-    //         </div>
-    //     );
-    // }
+    const onHandlerClick = () => {
+        setState((currentState) => !currentState);
+    };
 
-    // array.forEach((obj) => {
-    //     arrayReactElements.push(
-    //         <div>
-    //             {obj.hello}
-    //         </div>
-    //     );
-    // });
 
-    const result = array.map((obj) => {
-        return (
-            <div >
-                {obj.hello}
-            </div>
-        );
-    });
-
-    console.log(result);
+    const countHandler = () => {
+        setCount((value) => value + 1);
+    }
 
     return (
-        <div className="div">
-            {array.map((obj) => {
-                return (
-                    <div >
-                        {obj.hello}
-                    </div>
-                );
-            })}
+        <div>
+            <button onClick={countHandler}>+</button>
+            <button onClick={onHandlerClick}>Switch</button>
+            {state && <Children count={count} />}
         </div>
     );
 };
